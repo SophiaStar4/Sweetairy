@@ -1,0 +1,381 @@
+/* Обнуление ------------------------------------------------------------------------------- */
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul,
+ol,
+li {
+    list-style: none;
+}
+
+img {
+    vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: inherit;
+    font-size: inherit;
+}
+
+/* Шрифты ------------------------------------------------------------------------------- */
+
+@font-face {
+    font-family: 'Nothing You Could Do';
+    src: url('../fonts/NothingYouCouldDo.ttf');
+}
+
+@font-face {
+    font-family: 'Lato-Regular';
+    src: url('../fonts/Lato/Lato-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Lato-Bold';
+    src: url('../fonts/Lato/Lato-Bold.ttf');
+}
+
+/* Общее ------------------------------------------------------------------------------- */
+
+html,
+body {
+    height: 100%;
+    background-color: #D89D6A;
+    line-height: 1;
+    font-size: 15px;
+    color: #221814;
+    /* font-weight: 400; */
+    font-family: 'Lato-Regular', sans-serif;
+}
+
+body > header, .cover, footer {
+    color: #F1F1F1;
+}
+
+.wrapper {
+    min-height: 100%;
+    overflow: hidden;
+}
+
+._container {
+    max-width: 1300px;
+
+    box-sizing: content-box;
+
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+
+p {
+    margin: 10px 0;
+}
+
+button {
+    padding: 10px;
+    border-radius: 25px;
+    font-size: 20px;
+    font-family: 'Nothing You Could Do', cursive;
+}
+
+/* Шапка ------------------------------------------------------------------------------- */
+header {
+    width: 100%;
+
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    padding: 10px;
+}
+
+header > ._container {
+    min-height: 64px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #F1F1F1;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.burger {
+    display: none;
+}
+
+.burger > img {
+    width: 100%;
+}
+
+/* header > ._container > nav {
+    width: 500px;
+    min-width: 350px;
+} */
+
+header nav.active {
+    left: 0;
+}
+
+header ul {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    line-height: calc(32 / 14 * 100%);
+}
+
+header li:not(:last-child) {
+    margin: 0 40px 0 0;
+}
+
+@media (max-width: 768px) {
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+
+    header > ._container {
+        display: block;
+    }
+
+    .burger {
+        display: block;
+        width: 30px;
+        position: relative;
+        z-index: 30;
+        transition: transform 0.3s;
+    }
+
+    .burger.active {
+        transform: rotate(-90deg);
+    }
+
+    header nav {
+        /* Позиционирование */
+        position: absolute;
+        top: 0;
+        left: -100%;
+        z-index: 20;
+
+        /* Блочная модель */
+        width: 100%;
+        height: 100vh;
+        padding: 15px;
+        padding-top: 35px;
+
+        /* Типографика */
+        
+        /* Оформление */
+        background-color: #D89D6A;
+        
+        /* Анимация */
+        transition: left 0.3s;
+    }
+
+    header ul {
+        flex-flow: column nowrap;
+        align-items: center;
+
+        color: #221814
+    }
+
+    header li:not(:last-child) {
+        margin: 0;
+    }
+}
+
+/* Титульник ------------------------------------------------------------------------------- */
+.cover {
+    width: 100%;
+    height: 100vh;
+    background: url('../images/cover.jpg') no-repeat center center/cover fixed;
+}
+
+.cover > ._container {
+    height: 100%;
+}
+
+.cover article {
+    width: 100%;
+    height: 100%;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-size: 60px;
+    font-family: 'Nothing You Could Do', cursive;
+    margin-bottom: 10px;
+}
+
+.cover p {
+    padding-top: 10px;
+    border-top: 4px solid #D7FFAB;
+    text-align: center;
+}
+
+.cover button {
+    background-color: #FEFFAD;
+}
+
+/* День с нами ------------------------------------------------------------------------------- */
+/* О нас ------------------------------------------------------------------------------- */
+.about_us {
+    height: 100vh;
+}
+
+.about_us ._container {
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.about_us ._container > * {
+    width: 50%;
+    height: 50%;
+}
+
+.about_us ._container > div {
+    overflow: hidden;
+}
+
+.about_us ._container > div:first-child {
+    background: url('../images/sweets.jpg') no-repeat center center/cover;
+}
+
+.about_us ._container > div:last-child {
+    background: url('../images/berlin_buns.jpg') no-repeat center center/cover;
+}
+
+/* .about_us ._container > div img {
+    width: 100%;
+} */
+
+.about_us ._container article {
+    background-color: #FEFFAD;
+    padding: 6%;
+}
+
+.about_us ._container article h2 {
+    font-weight: 700;
+    font-size: 30px;
+}
+
+.about_us button {
+    background-color: #D89D6A;
+}
+
+@media (max-width: 768px) {
+    .about_us {
+        height: auto;
+    }
+
+    .about_us ._container {
+        flex-direction: column;
+    }
+
+    .about_us ._container > * {
+        width: 100%;
+    }
+
+    .about_us ._container > div {
+        height: 50vh;
+    }
+
+    .about_us ._container > article {
+        height: auto;
+    }
+}
+
+/* Подвал ------------------------------------------------------------------------------- */
+footer {
+    background-color: #424F33;
+    padding: 10px 0;
+}
+
+footer > ._container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.mini_logo {
+    width: 40px;
+}
+
+.mini_logo img {
+    width: 100%;
+}
+
+footer nav {
+    display: flex;
+}
+
+footer nav ul:nth-child(2) {
+    margin: 0 30px;
+}
+
+footer nav h2 {
+    font-weight: 400;
+}
+
+.links img {
+    width: 30px;
+}
+
+@media (max-width: 550px) {
+    footer > ._container {
+        flex-direction: column;
+    }
+
+    footer > ._container > * {
+        margin: 10px 0;
+    }
+
+    footer nav {
+        width: 100%;
+        justify-content: space-between;
+        /* flex-direction: column; */
+    }
+
+    footer nav ul:nth-child(2) {
+        margin: 0;
+    }
+}
+
+/* Кнопка возврата ------------------------------------------------------------------------------- */
+.return {
+    display: none;
+    width: 40px;
+    height: 40px;
+    background-color: #D7FFAB;
+    border-radius: 20px;
+    position: fixed;
+    top: 25px;
+    right: 75px;
+    text-align: center;
+}
+
+.return > img {
+    width: 80%;
+    margin-top: 2px;
+}
+
